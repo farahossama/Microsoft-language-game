@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gulzar&family=Merriweather&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>Guess Me | Language Game</title>
+</head>
+
+<body onload="description()">
+
+  <div class="intro">
+    <h1 class="logo-header">
+      <span class="logy">Hi</span><span class="logy">There.</span>
+    </h1>
+  </div>
+
+    <div class="hide" id="backBtn">
+        <div id="back" onclick="back()"><span><strong>Back</strong></span></div>
+    </div>
+
+    <div class="label-a hide"><strong>Score</strong>
+      (# of Correct answers for each category, each category has different color as we can see below).
+    </div>
+
+    <div id="sc" class="sideways hide">
+        <div class="pie-chart">
+            <canvas id="myChart" width="350px" height="350px"></canvas>
+        </div>
+
+        <div class="bar-chart">
+            <canvas id="myChart2" width="350px" height="350px"></canvas>
+        </div>
+    </div>
+
+    <div class="label-a hide"><strong>False Positives</strong>
+      (User determines label that it is true when it is actually false).
+    </div>
+
+    <div id="fp" class="sideways hide">
+
+        <div class="pie-chart">
+            <canvas id="myChart_pi_f_p" width="350px" height="350px"></canvas>
+        </div>
+
+        <div class="bar-chart">
+            <canvas id="myChart3" width="350px" height="350px"></canvas>
+        </div>
+
+
+    </div>
+
+    <div class="label-a hide"><strong>False Negatives</strong>
+      (User determines label that it is false when it is actually true Or a Categoty was missed).
+    </div>
+
+    <div id="fn" class="sideways hide">
+
+        <div class="pie-chart">
+            <canvas id="myChart_pi_f_n" width="350px" height="350px"></canvas>
+        </div>
+
+        <div class="bar-chart">
+            <canvas id="myChart4" width="350px" height="350px"></canvas>
+        </div>
+
+    </div>
+
+
+    <div id="game" class="page hide">
+        <div id="timer" class="scoreboard">
+            00:00:00
+        </div>
+        <ul id="myList"></ul>
+
+        <div id="textBox" class="text">
+            <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+                release of Letraset sheets containing Lorem Ipsum passages, and more
+            </p>
+            <div class="finish" onclick="scoreBoard()"><span>Done</span></div>
+
+        </div>
+
+    </div>
+    <div id="logo-container">
+        <div class="row">
+            <div id="red" class="logo"></div>
+            <div id="green" class="logo"></div>
+        </div>
+        <div class="row">
+            <div id="blue" class="logo"></div>
+            <div id="yellow" class="logo"></div>
+        </div>
+    </div>
+
+    <label id="uploadBtn" for="file-input" class="button">Upload document</label>
+    <input type="file" id="file-input" class="hide" accept="text/plain" />
+
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <p id="ops"></p>
+            <p id="error"></p>
+            <hr>
+            <span class="close">Dismiss</span>
+
+        </div>
+    </div>
+
+    <div id="myModal2" class="modal2">
+      <div class="modal2-content">
+        <!-- <h1 style="color: #94B49F; text-decoration: underline;">About Our Game</h1> -->
+        <!-- <h3 style="line-height: 250%;"> You'll be putting your ability to determine each word's category to the test in this game, for instance (Organization, Location, Datetime, Product,...etc), this game is powered by NER (Named Entity Recognition), It is one of the capabilities provided by Azure Cognitive Service for Language, a set of cloud-based AI and machine learning techniques for creating smart applications involving written language. Unstructured text can contain items that the NER feature can recognise and classify.</h3> -->
+        <!-- <hr class= "dot_line"> -->
+        <h1 class= "h1_content" style= "color: #293462; text-decoration: underline;">How to Play Our Game</h1>
+        <ol>
+          <li><h4>Use the <strong>upload your document button</strong> to upload your document.</h4></li>
+          <br>
+          <li><h4>You will be directed to the game page where the timer will begin right away after you upload your document.</h4></li>
+          <br>
+          <li><h4>You will have a navbar with various categories extracted from the document you have already uploaded.</h4></li>
+          <br>
+          <li><h4>There will be a dropdown list for each word in your paper, from which you must select only the one you believe to be the correct answer😉.</h4></li>
+          <br>
+          <li><h4>Once finished, click the <strong>Done</strong> button to submit your responses and access the score board page, which provides various performance assessments.</h4></li>
+          <br>
+          <h3 style= "color: #FF449F;"><strong>The button below will directe you to the page where you can upload your document.</strong></h3>
+        </ol>
+        <hr class="line">
+        <span class="close"><h3 style="color:#005F99; margin-top: 6%; font-size: large;">If you are ready😊, CLICK HERE to take you to the next step🏃‍♂️</h3></span>
+      </div>
+    </div>
+
+
+    <!-- <div class="popup">
+        <h1>GAME DESCRIPTION</h1>
+        <p> This is a language game in which you can test your capabilities of identifying each word's category.</p>
+        <ol>
+            <li>You need to press on the buttom <strong>"upload your document"</strong> in order to choose your .txt
+                file.If not a random chosen file will be selected.</li>
+            <br>
+            <li>Above, you will find a list of all the categories that are within the text.</li>
+            <br>
+            <li>Each time you choose the right category, <strong>the timer increments by 5 seconds</strong> and vice
+                versa.</li>
+            <br>
+            <li> after finishing press on the button <strong>submit</strong> and you will get your final score.</li>
+        </ol>
+        <button id="close">Lets Go</button>
+
+    </div> -->
+    <!-- <h1 class="label hide" id="S_b">Score Board</h1> -->
+    <div class="page_footer">
+        <div class="label hide" id="home_page" onclick="home_page()"><span><strong>Home page</strong></span></div>
+        <div class="label hide" id="Analytics" onclick="pie_chart()"><span><strong>See Full Analytics</strong></span>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <div class="label hide" id="l1">Score</div>
+        <table id="scoreBoard1" class="score hide">
+            <tr>
+                <th>time</th>
+                <th>location</th>
+                <th>skill</th>
+                <th>percentage</th>
+            </tr>
+            <tr>
+                <td>1:30</td>
+                <td>3 out of 6</td>
+                <td>1 out of 3</td>
+                <td>35%</td>
+            </tr>
+        </table>
+
+
+        <div class="label hide" id="l2">False Positives</div>
+        <table id="scoreBoard2" class="score hide"></table>
+
+        <div class="label hide" id="f_n">False Negatives</div>
+        <table id="scoreBoard3" class="score hide"></table>
+
+    </div>
+
+
+
+    <!-- <div class="Analytics" onclick="alert('In Progress, stay tuned👀👀👀');"><span><strong>See Analytics</strong></span></div></div> -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/index.js"></script>
+
+</body>
+
+</html>

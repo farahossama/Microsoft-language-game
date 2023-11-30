@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title of the document</title>
+</head>
+
+<body>
+    <script type='text/javascript' src='config.js'></script>
+    <script src="NerAPI.js"  ></script>
+    
+    Hello
+
+
+
+<!-- <script>
+    var dict = {};
+
+var categoryArray=[];
+
+var document;
+
+fetch('https://naeim-test.cognitiveservices.azure.com/language/:analyze-text?api-version=2022-05-01', {
+
+    method: "POST",
+
+    headers: {
+
+        'Content-type': 'application/json','ocp-apim-subscription-key':  config.MY_API_TOKEN
+
+    },
+
+    body: JSON.stringify(
+
+        {
+
+ 
+
+            "kind": "EntityRecognition",
+
+         
+
+            "analysisInput": {
+
+         
+
+                "documents": [
+
+         
+
+                    {
+
+                        "id": "id_1",
+
+         
+
+                        "text": "document",
+
+                        "language": "en"
+
+                    }
+
+         
+
+                ]
+
+         
+
+            }
+
+         
+
+          }
+
+    )
+
+   
+
+})
+
+.then(res => {
+
+    if (res.ok) { console.log("HTTP request successful") }
+
+    else { console.log("HTTP request unsuccessful") }
+
+    return res
+
+})
+
+.then(res => res.json())
+
+.then((data)=> { for( let i=0; i<data["results"]["documents"]["0"]["entities"].length;i++){
+
+    dict[data["results"]["documents"]["0"]["entities"][i]["text"]]=data["results"]["documents"]["0"]["entities"][i]["category"];
+
+    categoryArray.push(data["results"]["documents"]["0"]["entities"][i]["category"]);
+
+} console.log(dict);  console.log(new Set(categoryArray))})
+
+.catch(error => console.log(error))
+
+</script> -->
+
+
+
+</body>
+
+</html>

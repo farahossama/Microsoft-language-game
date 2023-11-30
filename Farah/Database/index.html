@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gulzar&family=Merriweather&family=Sacramento&display=swap" rel="stylesheet">
+  <title>Language Game</title>
+</head>
+
+<body>
+  <div id="game" class="page hide">
+    <div id="timer" class="scoreboard">
+      00:00:00
+    </div>
+   
+    <ul id="myList"></ul>
+    
+    <div id="textBox" class="text">
+      <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+        industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+        into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+        release of Letraset sheets containing Lorem Ipsum passages, and more
+      </p>
+      <div class="finish" onclick="scoreBoard();"><span>Done</span></div>
+
+    </div>
+    
+  </div>
+  <div id="logo-container">
+    <div class="row">
+      <div id="red" class="logo"></div>
+      <div id="green" class="logo"></div>
+    </div>
+    <div class="row">
+      <div id="blue" class="logo"></div>
+      <div id="yellow" class="logo"></div>
+    </div>
+  </div>
+ 
+  <label id="uploadBtn" for="file-input" class="button">Upload document</label>
+  <input type="file" id="file-input" class="hide" accept="text/plain" />
+
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <p id="ops"></p>
+      <p id="error"></p>
+      <hr>
+      <span class="close">Dismiss</span>
+
+    </div>
+  </div>
+
+  <div class="popup">
+    <h1>GAME DESCRIPTION</h1>
+    <p> This is a language game in which you can test your capabilities of identifying each word's category.</p>
+    <ol>
+      <li>You need to press on the buttom <strong>"upload your document"</strong> in order to choose your .txt file.If not a random chosen file will be selected.</li>
+      <br>
+      <li>Above, you will find a list of all the categories that are within the text.</li>
+      <br>
+      <li>Each time you choose the right category, <strong>the timer increments by 5 seconds</strong> and vice versa.</li>
+      <br>
+      <li> after finishing press on the button <strong>submit</strong> and you will get your final score.</li>
+    </ol>
+    <button id="close">Lets Go</button>
+
+  </div>
+  <!-- <h1 class="label hide" id="S_b">Score Board</h1> -->
+  <div class="label hide" id="l1">Score
+  </div>
+  <table id="scoreBoard1" class="score hide">
+    <tr>
+      <th>time</th>
+      <th>location</th>
+      <th>skill</th>
+      <th>percentage</th>
+    </tr>
+    <tr>
+      <td>1:30</td>
+      <td>3 out of 6</td>
+      <td>1 out of 3</td>
+      <td>35%</td>
+    </tr>
+  </table>
+  <div class="label hide" id="l2">False Positives</div>
+  <table id="scoreBoard2" class="score hide"></table>
+  <div class="page_footer">
+    <div class="label hide" id="home_page" onclick="home_page()"><span><strong>Home page</strong></span></div>
+    <div  class="label hide" id="Analytics"><span><strong>See Full Analytics</strong></span></div>
+  </div>
+
+  <!-- <div class="Analytics" onclick="alert('In Progress, stay tuned👀👀👀');"><span><strong>See Analytics</strong></span></div></div> -->
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="./js/config.js"></script>
+  <script src="./js/index1.js"></script>
+  
+  <script type="module" src="./dist/bundle.js"></script>
+  
+</body>
+
+</html>

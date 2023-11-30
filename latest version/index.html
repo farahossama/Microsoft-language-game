@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Language Game</title>
+</head>
+
+<body>
+    <div id="game" class="page hide">
+        <div class="rec entity" id="category"></div>
+        <div id="timer" class="scoreboard">
+          00:00:00
+        </div>
+
+        <div id="textBox" class="text">
+            <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+                release of Letraset sheets containing Lorem Ipsum passages, and more</p>
+
+        </div>
+
+    </div>
+    <div id="logo-container">
+        <div class="row">
+            <div id="red" class="logo"></div>
+            <div id="green" class="logo"></div>
+        </div>
+        <div class="row">
+            <div id="blue" class="logo"></div>
+            <div id="yellow" class="logo"></div>
+        </div>
+    </div>
+    <label id="uploadBtn" for="file-input" class="button">Upload document</label>
+    <input type="file" id="file-input" class="hide" accept="text/plain" />
+
+    <div class="popup">
+        <h1>DESCRIPTION</h1>
+        <p> This is a language game in which you can test your capabilities of identifying each word's category</p>
+        <ol>
+            <li>You need to press on the buttom "upload your document" in order to choose your .txt file.If not a random chosen file will be selected</li>
+            <li>Above, you will find a list of all  the categories that are within the text </li>
+            <li>Each time you choose the right category, the timer increments by 5 seconds and vice versa </li>
+            <li> after finishing press on the button submit and you will get your final score</li>
+          </ol>
+          <button id="close" >Lets Go</button>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="./js/script.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
